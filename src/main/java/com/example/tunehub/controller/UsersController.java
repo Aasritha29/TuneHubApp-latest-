@@ -18,6 +18,7 @@ public class UsersController {
 	
  
 	@PostMapping("/register")
+	//model attribute is ussed to pass the data from controller to vie(html/..i.e., frontend)
 	public String addUser(@ModelAttribute Users user)
 	{
 	   boolean userstat=userv.emailExists(user.getEmail());

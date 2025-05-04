@@ -41,6 +41,18 @@ public class SongsServiceImplementation implements SongsService {
 		// TODO Auto-generated method stub
 		songrepo.save(song);
 	}
+
+	@Override
+	public void deleteSongById(int id) {
+	    //TODO Auto-generated method stub
+		songrepo.deleteById(id);
+	}
+
+	@Override
+	public Songs getSongById(int id) {
+		// TODO Auto-generated method stub
+		 return songrepo.findById(id).orElse(null);
+	}
 	
 
 

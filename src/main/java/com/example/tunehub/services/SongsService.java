@@ -10,5 +10,7 @@ public interface SongsService {
 	public boolean nameExists(String name);
 	public List<Songs> fetchAllSongs();
 	public void updateSongs(Songs song);
+	public void deleteSongById(int id);
+	public Songs getSongById(int id);
 
 }

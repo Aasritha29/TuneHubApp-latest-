@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+
 import jakarta.persistence.ManyToMany;
 
 @Entity
@@ -16,7 +19,13 @@ public class Playlist {
 	int id;
 	String name;
 	@ManyToMany
-	List<Songs> song;
+	@JoinTable(
+	    name = "playlist_song",
+	    joinColumns = @JoinColumn(name = "playlist_id", referencedColumnName = "id"),
+	    inverseJoinColumns = @JoinColumn(name = "song_id", referencedColumnName = "id")
+	)
+	private List<Songs> song;
+
 	public Playlist() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -13,6 +13,7 @@
 <td>Artist</td>
 <td>Genre</td>
 <td>Link</td>
+<td>Action</td>
 </tr>
 </thead>
 
@@ -27,6 +28,19 @@
           <source th:src="${ls.link}" type="audio/mpeg">
         </audio>
       </td>
+                  <td>
+                <form th:action="@{'/delete-song/' + ${ls.id}}" method="post"
+                      onsubmit="return confirm('Are you sure you want to delete this song?');">
+                    <button type="submit">Delete</button>
+                </form>
+                <form th:action="@{'/edit-song/' + ${ls.id}}" method="get">
+                                    <button type="submit">Edit</button>
+                
+                </form>
+                
+                
+            </td>
+      
    </tr>
 </tbody>
 </table>

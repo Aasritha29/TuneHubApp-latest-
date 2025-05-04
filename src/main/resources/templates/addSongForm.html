@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Form</title>
+</head>
+<body>
+
+<h2 th:text="${song.id != null} ? 'Edit Song' : 'Add Song'">Song Form</h2>
+
+<form th:action="${song.id != null} ? @{/update-song} : @{/addSong}" 
+      th:object="${song}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    Name: <input type="text" th:field="*{name}" required /><br><br>
+    Artist: <input type="text" th:field="*{artist}" required /><br><br>
+    Genre: <input type="text" th:field="*{genre}" required /><br><br>
+    Link: <input type="text" th:field="*{link}" required /><br><br>
+
+    <button type="submit" 
+        th:text="${song.id != null} ? 'Update' : 'Add'">Submit</button>
+</form>
+
+</body>
+</html>

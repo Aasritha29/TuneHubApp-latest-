@@ -20,8 +20,10 @@ public class Songs {
 		String artist;
 		String genre;
 		String link;
-		@ManyToMany
-		List<Playlist> playlist;
+		
+		@ManyToMany(mappedBy = "song")
+		
+		private List<Playlist> playlist;
 		public Songs() {
 			super();
 			// TODO Auto-generated constructor stub
